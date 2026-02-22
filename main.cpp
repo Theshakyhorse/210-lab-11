@@ -46,5 +46,5 @@ void inputEmployee(Employee * sptr) {
     }
     cin.ignore();
     cout << endl << endl;
-    numEmp += 1;
+    numEmp++;
 }
