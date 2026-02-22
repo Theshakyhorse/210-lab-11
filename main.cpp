@@ -8,6 +8,7 @@ const int NUM_EMPLOYEES = 2;
 struct Employee {
     string name;
     int age;
+    int numDeg;
     string * degrees;
 
     ~Employee() {
@@ -38,30 +39,32 @@ int main(){
 
 //takes input to for employees
 void inputEmployee(Employee * sptr) {
-    static int numEmp = 1; //tracks which employee's data is being input
-    int deg;
+    static int numEmp = 1; //which employee's data is being input
     cout << "Input data for employee #" << numEmp << endl;
     cout << "Name: ";
     getline(cin, sptr->name);
     cout << "Age: ";
     cin >> sptr->age;
     cout << "Number of college degrees: ";
-    cin >> deg;
-    sptr -> degrees = new string[deg];
-    for (int i = 0; i < deg; i++) {
+    cin >> sptr->numDeg;
+    sptr -> degrees = new string[sptr->numDeg];
+    //this loop takes major names and puts them in the degrees array
+    for (int i = 0; i < sptr->numDeg; i++) {
         cout << "Major " << i+1 << ": ";
         cin >> sptr->degrees[i];
     }
+    //formatting
     cin.ignore();
     cout << endl;
-    numEmp++;
+    numEmp++; //updates counter to show which employee
 }
 
+//outputs employees
 void outputEmployee(Employee * sptr) {
-    cout << "Employee list:" << endl;
+    cout << "Employee details:" << endl;
     cout << "Name: " << sptr->name << endl;
     cout << "Age: " << sptr->age << endl;
-    for (int i = 0; i < sptr->degrees->size(); i++){
+    for (int i = 0; i < sptr->numDeg; i++){
         cout << "Major " << i+1 << ": ";
         cout << sptr->degrees[i] << endl;
     }
