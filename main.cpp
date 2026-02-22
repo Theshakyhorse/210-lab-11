@@ -8,7 +8,7 @@ const int NUM_EMPLOYEES = 3;
 struct Employee {
     string name;
     int age;
-    int * degrees;
+    string * degrees;
 
     ~Employee() {
         if (degrees)
@@ -18,6 +18,7 @@ struct Employee {
 };
 
 void inputEmployee(Employee *);
+void outputEmployee(Employee *);
 
 int main(){
     Employee *list = new Employee[NUM_EMPLOYEES];
@@ -39,7 +40,7 @@ void inputEmployee(Employee * sptr) {
     cin >> sptr->age;
     cout << "Number of college degrees: ";
     cin >> deg;
-    sptr -> degrees = new int[deg];
+    sptr -> degrees = new string[deg];
     for (int i = 0; i < deg; i++) {
         cout << "Major " << i+1 << ": ";
         cin >> sptr->degrees[i];
@@ -47,4 +48,14 @@ void inputEmployee(Employee * sptr) {
     cin.ignore();
     cout << endl << endl;
     numEmp++;
+}
+
+void outputEmployee(Employee * sptr) {
+    cout << "Employee list:" << endl;
+    cout << "Name: " << sptr->name << endl;
+    cout << "Age: " << sptr->age << endl;
+    for (int i = 0; i < sptr->degrees->size(); i++){
+        
+    }
+
 }
