@@ -17,8 +17,14 @@ struct Employee {
     }
 };
 
+void inputEmployee(Employee *);
+
 int main(){
     Employee *list = new Employee[NUM_EMPLOYEES];
+
+    for (int i = 0; i < NUM_EMPLOYEES; i++){
+        inputEmployee(&list[i]);
+    }
 
     return 0;
 }
@@ -35,7 +41,10 @@ void inputEmployee(Employee * sptr) {
     cin >> deg;
     sptr -> degrees = new int[deg];
     for (int i = 0; i < deg; i++) {
-        cout << "Major: " << i+1;
-        
+        cout << "Major " << i+1 << ": ";
+        cin >> sptr->degrees[i];
     }
+    cin.ignore();
+    cout << endl << endl;
+    numEmp += 1;
 }
