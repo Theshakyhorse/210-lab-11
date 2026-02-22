@@ -1,8 +1,9 @@
+// COMSC-210 | Lab 11 | Alexander Sierra
 #include <iostream>
 using namespace std;
 
 //the number of employees is typically constant
-const int NUM_EMPLOYEES = 2;
+const int NUM_EMPLOYEES = 5;
 
 //struct representing employees at a company
 struct Employee {
