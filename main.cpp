@@ -2,7 +2,7 @@
 using namespace std;
 
 //the number of employees is typically constant
-const int NUM_EMPLOYEES = 3;
+const int NUM_EMPLOYEES = 2;
 
 //struct representing employees at a company
 struct Employee {
@@ -23,15 +23,22 @@ void outputEmployee(Employee *);
 int main(){
     Employee *list = new Employee[NUM_EMPLOYEES];
 
+    //loops to fill list with multiple employees
     for (int i = 0; i < NUM_EMPLOYEES; i++){
         inputEmployee(&list[i]);
+    }
+
+    //loops to output all employees in list
+    for (int i = 0; i < NUM_EMPLOYEES; i++){
+        outputEmployee(&list[i]);
     }
 
     return 0;
 }
 
+//takes input to for employees
 void inputEmployee(Employee * sptr) {
-    static int numEmp = 1;
+    static int numEmp = 1; //tracks which employee's data is being input
     int deg;
     cout << "Input data for employee #" << numEmp << endl;
     cout << "Name: ";
@@ -46,7 +53,7 @@ void inputEmployee(Employee * sptr) {
         cin >> sptr->degrees[i];
     }
     cin.ignore();
-    cout << endl << endl;
+    cout << endl;
     numEmp++;
 }
 
@@ -55,7 +62,8 @@ void outputEmployee(Employee * sptr) {
     cout << "Name: " << sptr->name << endl;
     cout << "Age: " << sptr->age << endl;
     for (int i = 0; i < sptr->degrees->size(); i++){
-        
+        cout << "Major " << i+1 << ": ";
+        cout << sptr->degrees[i] << endl;
     }
-
+    cout << endl;
 }
