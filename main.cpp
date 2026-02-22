@@ -60,11 +60,12 @@ void inputEmployee(Employee * sptr) {
     numEmp++; //updates counter to show which employee
 }
 
-//outputs employees
+//outputs employees details
 void outputEmployee(Employee * sptr) {
     cout << "Employee details:" << endl;
     cout << "Name: " << sptr->name << endl;
     cout << "Age: " << sptr->age << endl;
+    //outputs their degrees
     for (int i = 0; i < sptr->numDeg; i++){
         cout << "Major " << i+1 << ": ";
         cout << sptr->degrees[i] << endl;
